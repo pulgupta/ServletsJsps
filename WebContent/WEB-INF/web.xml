@@ -1,48 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-	version="3.0">
-	<display-name>ServletsJsps</display-name>
-	<welcome-file-list>
-		<welcome-file>index.html</welcome-file>
-		<welcome-file>index.htm</welcome-file>
-		<welcome-file>index.jsp</welcome-file>
-		<welcome-file>default.html</welcome-file>
-		<welcome-file>default.htm</welcome-file>
-		<welcome-file>default.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>ch3Beer</servlet-name>
-		<servlet-class>com.example.web.BeerSelect</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>ch3Beer</servlet-name>
-		<url-pattern>/SelectBeer.do</url-pattern>
-	</servlet-mapping>
-
-	<servlet>
-		<servlet-name>ListenerTester</servlet-name>
-		<servlet-class>com.example.ListenerTester</servlet-class>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ListenerTester</servlet-name>
-		<url-pattern>/ListenTest.do</url-pattern>
-	</servlet-mapping>
-
-	<context-param>
-		<param-name>breed</param-name>
-		<param-value>Great Dane</param-value>
-	</context-param>
-	
-	<!-- This element will link the ServletContextListener 
-	There are multiple types of listerner for many life cycle moments 
-	However we are not specifying it as the container will understand 
-	What type of listener we are dealing with by checking the interface type of the class-->
-	<listener>
-		<listener-class>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>ServletsJsps</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>ch3Beer</servlet-name>
+    <servlet-class>com.example.web.BeerSelect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ch3Beer</servlet-name>
+    <url-pattern>/SelectBeer.do</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ListenerTester</servlet-name>
+    <servlet-class>com.example.ListenerTester</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListenerTester</servlet-name>
+    <url-pattern>/ListenTest.do</url-pattern>
+  </servlet-mapping>
+  <context-param>
+    <param-name>breed</param-name>
+    <param-value>Great Dane</param-value>
+  </context-param>
+  <listener>
+    <listener-class>
 			com.example.MyServletContextListener
 		</listener-class>
-	</listener>
+  </listener>
 </web-app>
