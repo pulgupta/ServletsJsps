@@ -3,6 +3,7 @@ package com.example;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,8 +40,12 @@ public class ListenerTester extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		Dog dog = (Dog) getServletContext().getAttribute("dog");
+		request.setAttribute("dog", dog);
+		System.out.println("the breed of the dog is in servlet" + dog.getBreed());
+		RequestDispatcher rd = request.getRequestDispatcher("eldemo.jsp");
+		rd.forward(request, response);
 	}
 
 }

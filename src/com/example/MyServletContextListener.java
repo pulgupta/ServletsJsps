@@ -18,8 +18,11 @@ public class MyServletContextListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		ServletContext sc = event.getServletContext();
 		String dogBreed = sc.getInitParameter("breed");
-		Dog d = new Dog(dogBreed);
+		System.out.println("Dog breed in listener is " + dogBreed);
+		Dog d = new Dog();
+		d.setBreed(dogBreed);
 		sc.setAttribute("dog", d);
+		System.out.println("context initialized");
 	}
 
 }
