@@ -43,5 +43,10 @@
     <listener-class>
 			com.example.MyServletContextListener
 		</listener-class>
+  </listener>  <listener>
+    <listener-class>
+			com.example.SampleRequestAttributeListener
+		</listener-class>
   </listener>
+  
 </web-app>
