@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ListenerTester
  */
-@WebServlet("/ListenerTester")
+//@WebServlet("/ListenerTester")
 public class ListenerTester extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

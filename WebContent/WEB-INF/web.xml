@@ -12,6 +12,12 @@
   <servlet>
     <servlet-name>ch3Beer</servlet-name>
     <servlet-class>com.example.web.BeerSelect</servlet-class>
+    <!-- Servlet init params. This will be read from the servlet config -->
+    <init-param>
+    	<param-name>adminEmail</param-name>
+    	<param-value>pulgupta@gmail.com</param-value>
+    </init-param>
+    
   </servlet>
   <servlet-mapping>
     <servlet-name>ch3Beer</servlet-name>
@@ -28,6 +34,10 @@
   <context-param>
     <param-name>breed</param-name>
     <param-value>Great Dane</param-value>
+  </context-param>
+  <context-param>
+    <param-name>adminEmailGlobal</param-name>
+    <param-value>pulgupta_global@gmail.com</param-value>
   </context-param>
   <listener>
     <listener-class>

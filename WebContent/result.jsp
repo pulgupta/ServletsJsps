@@ -11,7 +11,7 @@
 <body>
 	<h1>beer recommendations</h1>
 	<%
-		List<String> styles = (List)request.getAttribute("styles");
+		List<String> styles = (List<String>)request.getAttribute("styles");
 		Iterator<String> it = styles.iterator();
 		while(it.hasNext()){
 			out.println("<br> Try " + it.next());

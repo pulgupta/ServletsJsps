@@ -1,7 +1,6 @@
 package com.example.web;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -9,7 +8,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import com.example.model.BeerExpert;
 
@@ -49,7 +47,10 @@ public class BeerSelect extends HttpServlet {
 		//Calling model
 		BeerExpert be = new BeerExpert();
 		List<String> result = be.getBrands(c);
-		
+		System.out.println(getServletConfig().getInitParameter("adminEmail"));
+		System.out.println(getServletContext().getInitParameter("adminEmailGlobal"));
+		//What eve we are setting here we will be able to use the same name in the jsp page
+		//to load the data
 		request.setAttribute("styles", result);
 		
 		//Redirecting to the view
