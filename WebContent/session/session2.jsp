@@ -7,7 +7,7 @@
 <title>Lets test sessions</title>
 </head>
 <body>
-<form method="POST" action="session.do">
+<form method="POST" action=<%= response.encodeURL("session.do") %>>
 	Enter Your Age : <input type="text" name="ans2"/>
 	<input type="submit" value="Enter"/>
 	<input type="hidden" id="thisField" name="endConservation" value="true">

@@ -7,7 +7,8 @@
 <title>Lets test sessions</title>
 </head>
 <body>
-<form method="POST" action="session.do">
+<!-- In the below way we can say that even in case cookies are disabled we can ensure sessions will work -->
+<form method="POST" action=<%= response.encodeURL("session.do") %>>
 	Enter Your Name : <input type="text" name="ans1"/>
 	<input type="submit" value="Enter"/>
 </form>
