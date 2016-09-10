@@ -1,12 +1,16 @@
 package com.example.session;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  * Servlet implementation class SessionExample
@@ -28,18 +32,34 @@ public class SessionExample extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		//HttpSession hs = request.getSession();
-		//String cart = request.getParameter("item");
-		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		HttpSession session = request.getSession();
+		Enumeration<String> names = request.getParameterNames();
+		while(names.hasMoreElements()) {
+			String name = names.nextElement();
+			session.setAttribute(name, request.getParameter(name));
+			System.out.println("attribute added in session " + request.getParameter(name));
+		}
+		String flag = request.getParameter("endConservation");
+		String nextPage = "";
+		if(flag==null || !flag.equals("true")){
+			nextPage="session2.jsp";
+		}
+		else {
+			nextPage="result.jsp";
+			Enumeration<String> reqNames = session.getAttributeNames();
+			while(reqNames.hasMoreElements()){
+				String temp = reqNames.nextElement();
+				request.setAttribute(temp, session.getAttribute(temp));
+			}
+		}
+		RequestDispatcher rd = request.getRequestDispatcher(nextPage);
+		rd.forward(request, response);
 	}
 
 }

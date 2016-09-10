@@ -17,7 +17,6 @@
     	<param-name>adminEmail</param-name>
     	<param-value>pulgupta@gmail.com</param-value>
     </init-param>
-    
   </servlet>
   <servlet-mapping>
     <servlet-name>ch3Beer</servlet-name>
@@ -30,6 +29,14 @@
   <servlet-mapping>
     <servlet-name>ListenerTester</servlet-name>
     <url-pattern>/ListenTest.do</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>SessionTester</servlet-name>
+    <servlet-class>com.example.session.SessionExample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionTester</servlet-name>
+    <url-pattern>/session/session.do</url-pattern>
   </servlet-mapping>
   <context-param>
     <param-name>breed</param-name>
