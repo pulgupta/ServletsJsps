@@ -24,6 +24,11 @@ public class BeerSelect extends HttpServlet {
     public BeerSelect() {
         // TODO Auto-generated constructor stub
     }
+    
+    @Override
+    public void init() {
+    	System.out.println("In init method " + getServletContext().getInitParameter("adminEmailGlobal"));
+    }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
