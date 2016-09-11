@@ -9,13 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <!-- SERVLET MAPPINGS -->
   <servlet>
     <servlet-name>ch3Beer</servlet-name>
     <servlet-class>com.example.web.BeerSelect</servlet-class>
-    <!-- Servlet init params. This will be read from the servlet config -->
     <init-param>
-    	<param-name>adminEmail</param-name>
-    	<param-value>pulgupta@gmail.com</param-value>
+      <param-name>adminEmail</param-name>
+      <param-value>pulgupta@gmail.com</param-value>
     </init-param>
   </servlet>
   <servlet-mapping>
@@ -30,7 +30,7 @@
     <servlet-name>ListenerTester</servlet-name>
     <url-pattern>/ListenTest.do</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>SessionTester</servlet-name>
     <servlet-class>com.example.session.SessionExample</servlet-class>
   </servlet>
@@ -38,6 +38,7 @@
     <servlet-name>SessionTester</servlet-name>
     <url-pattern>/session/session.do</url-pattern>
   </servlet-mapping>
+  <!-- CONTEXT PARAMS -->
   <context-param>
     <param-name>breed</param-name>
     <param-value>Great Dane</param-value>
@@ -46,14 +47,25 @@
     <param-name>adminEmailGlobal</param-name>
     <param-value>pulgupta_global@gmail.com</param-value>
   </context-param>
+  
+  <!-- LISTNERS -->
   <listener>
     <listener-class>
 			com.example.MyServletContextListener
 		</listener-class>
-  </listener>  <listener>
+  </listener>
+  <listener>
     <listener-class>
 			com.example.SampleRequestAttributeListener
 		</listener-class>
   </listener>
-  
+  <!-- FILTERS -->
+  <filter>
+  	<filter-name>logging</filter-name>
+  	<filter-class>com.example.filters.logUser</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>logging</filter-name>
+  	<url-pattern>/session/*</url-pattern>
+  </filter-mapping>
 </web-app>

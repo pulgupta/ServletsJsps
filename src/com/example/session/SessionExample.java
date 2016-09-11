@@ -6,6 +6,7 @@ import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,6 +43,13 @@ public class SessionExample extends HttpServlet {
 		Enumeration<String> names = request.getParameterNames();
 		while(names.hasMoreElements()) {
 			String name = names.nextElement();
+			System.out.println(name);
+			if(name.equals("ans1")) {
+				Cookie cookie = new Cookie("userName", "Welcome " + request.getParameter(name));
+				cookie.setMaxAge(3000*60);
+				response.addCookie(cookie);
+			}
+				
 			session.setAttribute(name, request.getParameter(name));
 			System.out.println("attribute added in session " + request.getParameter(name));
 		}
